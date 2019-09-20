@@ -1,18 +1,20 @@
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Work {
-    private String companyName, jobTitle, jobDescription;
-    private Date startDate, endDate;
+    private String companyName, jobTitle;
+    private ArrayList<String> jobDescriptions;
+    private Calendar startDate, endDate;
     private SimpleDateFormat fmt;
     public Work(){
         fmt = new SimpleDateFormat("MMMM dd yyyy");
     }
 
-    public Work(String companyName, String jobTitle, String jobDescription, Date startDate, Date endDate) {
+    public Work(String companyName, String jobTitle, ArrayList<String> jobDescriptions, Calendar startDate, Calendar endDate) {
         this.companyName = companyName;
         this.jobTitle = jobTitle;
-        this.jobDescription = jobDescription;
+        this.jobDescriptions = jobDescriptions;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -33,33 +35,35 @@ public class Work {
         this.jobTitle = jobTitle;
     }
 
-    public String getJobDescription() {
-        return jobDescription;
+    public ArrayList<String> getJobDescription() {
+        return jobDescriptions;
     }
 
-    public void setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
+    public void setJobDescription(ArrayList<String> jobDescriptions) {
+        this.jobDescriptions = jobDescriptions;
     }
 
-    public Date getStartDate() {
+    public Calendar getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Calendar startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public Calendar getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Calendar endDate) {
         this.endDate = endDate;
     }
 
     public String toString() {
-        return jobTitle + "\n" +
-                companyName + ", " + fmt.format(startDate) + " - " + fmt.format(endDate) +
-                "- " + jobDescription;
+        String msg = jobTitle + "\n" + companyName + ", " + fmt.format(startDate.getTime()) + " - "
+                + fmt.format(endDate.getTime());
+        for(String s : jobDescriptions)
+            msg += "\n- " + s;
+        return msg;
     }
 }

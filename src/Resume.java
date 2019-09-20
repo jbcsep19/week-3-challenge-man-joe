@@ -1,19 +1,49 @@
+import java.util.ArrayList;
+
 public class Resume {
-    private Education edu;
-    private Work wrk;
-    private Skills skills; // change to arrayList of 3
+    private ArrayList<Education> edus;
+    private ArrayList<Work> wrks;
+    private ArrayList<Skills> skills; // change to arrayList of 3
     private String name, email;
 
-    public Resume(){
-
+    public Resume() {
+        edus = new ArrayList<>();
+        wrks = new ArrayList<>();
+        skills = new ArrayList<>();
+        name = "";
+        email = "";
     }
 
-    public Resume(Education edu, Work wrk, Skills skills, String name, String email) {
-        this.edu = edu;
-        this.wrk = wrk;
+    public Resume(ArrayList<Education> edus, ArrayList<Work> wrks, ArrayList<Skills> skills, String name, String email) {
+        this.edus = edus;
+        this.wrks = wrks;
         this.skills = skills;
         this.name = name;
         this.email = email;
+    }
+
+    public ArrayList<Education> getEdus() {
+        return edus;
+    }
+
+    public void setEdus(ArrayList<Education> edus) {
+        this.edus = edus;
+    }
+
+    public ArrayList<Work> getWrks() {
+        return wrks;
+    }
+
+    public void setWrks(ArrayList<Work> wrks) {
+        this.wrks = wrks;
+    }
+
+    public ArrayList<Skills> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(ArrayList<Skills> skills) {
+        this.skills = skills;
     }
 
     public String getName() {
@@ -32,41 +62,20 @@ public class Resume {
         this.email = email;
     }
 
-    public Education getEdu() {
-        return edu;
-    }
-
-    public void setEdu(Education edu) {
-        this.edu = edu;
-    }
-
-    public Work getWrk() {
-        return wrk;
-    }
-
-    public void setWrk(Work wrk) {
-        this.wrk = wrk;
-    }
-
-    public Skills getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Skills skills) {
-        this.skills = skills;
-    }
-
     public String toString() {
         String msg = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
         msg += name + "\n" + email + "\n\n";
         msg += "Education\n";
-        msg += edu.toString();
-        msg += "\n\n";
+        for(Education e : edus)
+            msg += e.toString() + "\n";
+        msg += "\n";
         msg += "Experience\n";
-        msg += wrk.toString();
-        msg += "\n\n";
+        for(Work w : wrks)
+            msg += w.toString() + "\n";
+        msg += "\n";
         msg += "Skills\n";
-        msg += skills.toString();
+        for(Skills s : skills)
+            msg += s.toString() + "\n";
 
         return msg;
     }

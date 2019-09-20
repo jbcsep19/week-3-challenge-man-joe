@@ -2,9 +2,11 @@ public class Education {
     String degreeType, major, uniName;
     int gradYear;
 
-
     public Education() {
-
+        degreeType = "";
+        major = "";
+        uniName = "";
+        gradYear = 0;
     }
     public Education(String degreeType, String major, String uniName, int gradYear) {
         this.degreeType = degreeType;

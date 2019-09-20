@@ -39,6 +39,6 @@ public class Skills {
     }
 
     public String toString(){
-        return skillName + ", " + skillLevel;
+        return skillName.trim() + ", " + skillLevel;
     }
 }
