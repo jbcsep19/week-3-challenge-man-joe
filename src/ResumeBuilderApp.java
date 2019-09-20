@@ -27,7 +27,7 @@ public class ResumeBuilderApp {
     public static void main(String[] args) {
         Resume res = new Resume();
         while(true){
-            System.out.println("Welcome to Resume Builder and DB!!! Enter any key to start or q to quit");
+            System.out.print("Welcome to Resume Builder and DB!!! Enter any key to start or q to quit: ");
             userInput = sc.nextLine();
 
             if(userInput.equalsIgnoreCase("q"))
